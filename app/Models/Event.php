@@ -14,7 +14,19 @@ class Event extends Model
     protected $fillable = ['title', 'description', 'start_date', 'end_date', 'status'];
 
     protected $casts = [
-        'start_date' => 'date',
-        'end_date'=> 'date',
+        'start_date' => 'datetime',
+        'end_date'=> 'datetime',
     ];
+
+    public function getEventStatusAttribute()
+    {
+        if($this->end_date->isPast())
+            return 'Finished';
+
+        if($this->start_date->isPast() && $this->end_date->isFuture())
+            return "Running";
+
+        return 'Upcomming';
+    }
+
 }

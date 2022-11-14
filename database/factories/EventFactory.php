@@ -18,7 +18,9 @@ class EventFactory extends Factory
     public function definition()
     {
         $start_date = Carbon::parse(fake()->dateTimeBetween('-1 year', '+2 months'));
-        $end_date = $start_date->addDays(rand(1,30));
+
+        $day = rand(1,30);
+        $end_date = $start_date->copy()->addDays($day);
 
         return [
             'title' => fake()->sentence(),
