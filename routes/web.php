@@ -7,6 +7,6 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('events', Controllers\EventController::class);
+Route::resource('events', Controllers\EventController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';

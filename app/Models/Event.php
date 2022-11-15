@@ -26,7 +26,7 @@ class Event extends Model
         if($this->start_date->isPast() && $this->end_date->isFuture())
             return "Running";
 
-        return 'Upcomming';
+        return 'Upcoming';
     }
 
 }
