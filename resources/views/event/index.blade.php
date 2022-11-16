@@ -92,7 +92,14 @@
                                         <div class="text-left">{{$event->event_status}}</div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">??</div>
+                                        <div class="text-lg text-center flex">
+                                            <a href="{{route('events.edit', $event->id)}}" class="text-blue-700 mr-3">Edit</a>
+                                            <form onsubmit="return confirm('Do you really want to delete?')" action="{{route('events.destroy', $event->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="text-red-700">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
