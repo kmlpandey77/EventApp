@@ -7,6 +7,6 @@ use Illuminate\Support\Facades\Route;
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/', Controllers\EventController::class);
+Route::resource('events', Controllers\EventController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';
