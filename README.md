@@ -17,7 +17,7 @@ php artisan migrate --seed
 
 #### generate app key
 ```
-php artisan generate:key
+php artisan key:generate
 ```
 
 #### Build assets
